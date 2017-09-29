@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Vidly.Models.Customer>
+@*
+    just a quick list to show the layout,
+    later replacing it with a database structure
+
+    
+*@
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+@if (!Model.Any())
+{
+    <p>Aint No customers Chieef</p>
+}
+else
+{
+    <table class ="table table-bordered table-responsive">
+        <thead>
+        <tr>
+            <th>Customers</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
