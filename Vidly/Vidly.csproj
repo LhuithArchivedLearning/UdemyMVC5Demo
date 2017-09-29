@@ -201,11 +201,24 @@
     <Compile Include="Migrations\201709290654248_InitialModel.Designer.cs">
       <DependentUpon>201709290654248_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709290700462_AddisSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201709290700462_AddisSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201709290700462_AddisSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709290812498_AddMembershipType.cs" />
+    <Compile Include="Migrations\201709290812498_AddMembershipType.Designer.cs">
+      <DependentUpon>201709290812498_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709290814264_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201709290814264_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201709290814264_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -294,6 +307,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709290654248_InitialModel.resx">
       <DependentUpon>201709290654248_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709290700462_AddisSubscribedToCustomer.resx">
+      <DependentUpon>201709290700462_AddisSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709290812498_AddMembershipType.resx">
+      <DependentUpon>201709290812498_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709290814264_PopulateMembershipTypes.resx">
+      <DependentUpon>201709290814264_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
