@@ -9,7 +9,8 @@ namespace Vidly.Models
     public class Movie
     {
         public int Id { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please Enter a Title.")]
         [StringLength(255)]
         public String Name { get; set; }
 
@@ -25,6 +26,7 @@ namespace Vidly.Models
         public DateTime ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]
+        [Range(1, 20, ErrorMessage = "{0} Must Be Between {1} and {2}")]
         public byte NumberInStock { get; set; }
     }
 
