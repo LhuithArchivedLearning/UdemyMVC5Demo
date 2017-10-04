@@ -25,10 +25,14 @@ namespace Vidly.Migrations
 
             AddColumn("dbo.Movies", "NumberAvailable", c => c.Byte(nullable: false));
 
+            Sql("UPDATE Movies SET NumberAvailable = NumberInStock");
+
         }
 
         public override void Down()
         {
+            DropColumn("dbo.Movies", "NumberAvailable");
+
             DropForeignKey("dbo.Rentals", "Movie_Id", "dbo.Movies");
             DropForeignKey("dbo.Rentals", "Customer_Id", "dbo.Customers");
             DropIndex("dbo.Rentals", new[] { "Movie_Id" });
