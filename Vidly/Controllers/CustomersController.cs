@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -70,12 +71,6 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
-
-        public ViewResult Index()
-        {
-            return View();
-        }
-
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
@@ -101,6 +96,18 @@ namespace Vidly.Controllers
 
 
             return View("CustomerForm", viewModel);
+        }
+
+
+        public ViewResult Index()
+        {
+            if (MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+            return View();
         }
 
     }
